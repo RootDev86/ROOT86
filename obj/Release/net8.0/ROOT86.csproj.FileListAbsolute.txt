@@ -1,0 +1,15 @@
+/home/lfqi/ROOT86/bin/Release/net8.0/ROOT86
+/home/lfqi/ROOT86/bin/Release/net8.0/ROOT86.deps.json
+/home/lfqi/ROOT86/bin/Release/net8.0/ROOT86.runtimeconfig.json
+/home/lfqi/ROOT86/bin/Release/net8.0/ROOT86.dll
+/home/lfqi/ROOT86/bin/Release/net8.0/ROOT86.pdb
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.GeneratedMSBuildEditorConfig.editorconfig
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.AssemblyInfoInputs.cache
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.AssemblyInfo.cs
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.csproj.CoreCompileInputs.cache
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.sourcelink.json
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.dll
+/home/lfqi/ROOT86/obj/Release/net8.0/refint/ROOT86.dll
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.pdb
+/home/lfqi/ROOT86/obj/Release/net8.0/ROOT86.genruntimeconfig.cache
+/home/lfqi/ROOT86/obj/Release/net8.0/ref/ROOT86.dll

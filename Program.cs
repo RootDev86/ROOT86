@@ -1,46 +1,81 @@
-using System.Diagnostics;
+Dictionary<string, string> nodes = new();
 
 Console.Title = "ROOT86";
 
-Console.ForegroundColor = ConsoleColor.Red;
-
-Dictionary<string, string> nodes = new();
-
-Console.WriteLine("ROOT86 RUNTIME v0.2");
-Console.WriteLine("FILESYSTEM LINKED");
-Console.WriteLine();
-
 while (true)
 {
-    Console.Write("ROOT86 > ");
+    Console.ForegroundColor = ConsoleColor.White;
+
+    Console.WriteLine("ROOT86");
+
+    Console.ForegroundColor = ConsoleColor.Cyan;
+
+    Console.Write(">_ ");
+
+    Console.ForegroundColor = ConsoleColor.White;
 
     string? input = Console.ReadLine();
 
     if (string.IsNullOrWhiteSpace(input))
+    {
+        Console.Clear();
         continue;
+    }
 
+    input = input.Trim();
+
+    // EXIT
     if (input == "exit")
+    {
         break;
+    }
 
+    // CLEAR
     if (input == "clear")
     {
         Console.Clear();
         continue;
     }
 
+    // HELP
     if (input == "help")
     {
         Console.WriteLine("help");
         Console.WriteLine("clear");
         Console.WriteLine("exit");
-        Console.WriteLine("node.list");
         Console.WriteLine("node.create X");
+        Console.WriteLine("node.list");
         Console.WriteLine("fs.list");
-        Console.WriteLine("fs.make X");
-        Console.WriteLine("pkg.install X");
         continue;
     }
 
+    // NODE CREATE
+    if (input.StartsWith("node.create "))
+    {
+        string node = input.Replace("node.create ", "");
+
+        nodes[node] = "null";
+
+        continue;
+    }
+
+    // NODE VALUE
+    if (input.Contains("="))
+    {
+        string[] parts = input.Split("=");
+
+        if (parts.Length == 2)
+        {
+            string node = parts[0].Trim();
+            string value = parts[1].Trim();
+
+            nodes[node] = value;
+        }
+
+        continue;
+    }
+
+    // NODE LIST
     if (input == "node.list")
     {
         foreach (var node in nodes)
@@ -51,76 +86,21 @@ while (true)
         continue;
     }
 
-    if (input.StartsWith("node.create "))
-    {
-        string nodeName = input.Replace("node.create ", "");
-
-        nodes[nodeName] = "0";
-
-        Console.WriteLine($"created node: {nodeName}");
-
-        continue;
-    }
-
-    if (input.Contains("=="))
-    {
-        string[] parts = input.Split("==");
-
-        if (parts.Length == 2)
-        {
-            string node = parts[0].Trim();
-            string value = parts[1].Trim();
-
-            nodes[node] = value;
-
-            Console.WriteLine($"updated {node} = {value}");
-        }
-
-        continue;
-    }
-
+    // FS LIST
     if (input == "fs.list")
     {
-        string[] dirs = Directory.GetDirectories(".");
-
-        foreach (string dir in dirs)
+        foreach (var dir in Directory.GetDirectories("."))
         {
             Console.WriteLine(dir);
         }
 
-        continue;
-    }
-
-    if (input.StartsWith("fs.make "))
-    {
-        string folder = input.Replace("fs.make ", "");
-
-        Directory.CreateDirectory(folder);
-
-        Console.WriteLine($"directory created: {folder}");
+        foreach (var file in Directory.GetFiles("."))
+        {
+            Console.WriteLine(file);
+        }
 
         continue;
     }
 
-    if (input.StartsWith("pkg.install "))
-    {
-        string package = input.Replace("pkg.install ", "");
-
-        Process proc = new();
-
-        proc.StartInfo.FileName = "/bin/sh";
-        proc.StartInfo.Arguments = $"-c \"apk add {package}\"";
-
-        proc.StartInfo.UseShellExecute = false;
-
-        proc.Start();
-
-        proc.WaitForExit();
-
-        Console.WriteLine($"package injected: {package}");
-
-        continue;
-    }
-
-    Console.WriteLine($"unknown node: {input}");
+    Console.WriteLine("unknown");
 }

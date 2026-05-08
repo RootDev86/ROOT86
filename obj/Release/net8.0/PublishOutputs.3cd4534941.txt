@@ -1,0 +1,5 @@
+/home/lfqi/ROOT86/bin/Release/net8.0/publish/ROOT86
+/home/lfqi/ROOT86/bin/Release/net8.0/publish/ROOT86.dll
+/home/lfqi/ROOT86/bin/Release/net8.0/publish/ROOT86.deps.json
+/home/lfqi/ROOT86/bin/Release/net8.0/publish/ROOT86.runtimeconfig.json
+/home/lfqi/ROOT86/bin/Release/net8.0/publish/ROOT86.pdb
