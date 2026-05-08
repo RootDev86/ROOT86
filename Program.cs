@@ -4,6 +4,10 @@ Console.Title = "ROOT86";
 
 while (true)
 {
+    Console.ForegroundColor = ConsoleColor.Cyan;
+
+    Console.Write(">_ ");
+
     Console.ForegroundColor = ConsoleColor.White;
 
     Console.WriteLine("ROOT86");
