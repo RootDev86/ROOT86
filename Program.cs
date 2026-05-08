@@ -42,6 +42,24 @@ while (true)
         continue;
     }
 
+    // =====================================
+    // LS NODE EXECUTION
+    // =====================================
+
+    if (input.StartsWith("ls."))
+    {
+        if (runtime.ContainsKey(input))
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
+            Console.WriteLine(runtime[input]);
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        continue;
+    }
+
     // RUNTIME NODES
     if (input.Contains("="))
     {
