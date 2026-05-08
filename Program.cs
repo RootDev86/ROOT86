@@ -13,6 +13,7 @@ while (true)
     Console.Write(">_ ");
 
     string? input = Console.ReadLine();
+    input = input?.TrimStart();
 
     input = input?.Trim();
 
