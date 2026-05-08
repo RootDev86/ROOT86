@@ -33,6 +33,10 @@ while (true)
             string value = parts[1].Trim();
 
             runtime[node] = value;
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine($"[{node}]");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         continue;
