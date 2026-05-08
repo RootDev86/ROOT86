@@ -25,33 +25,30 @@ while (true)
     // VALUE ASSIGN
     if (input.Contains("="))
     {
-        string[] parts = input.Split("=");
+        int index = input.IndexOf('=');
 
-        if (parts.Length == 2)
-        {
-            string node = parts[0].Trim();
-            string value = parts[1].Trim();
+        string node = input.Substring(0, index).Trim();
+        string value = input.Substring(index + 1).Trim();
 
-            runtime[node] = value;
+        runtime[node] = value;
 
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"[{node}]");
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.WriteLine($"[{node}]");
+        Console.ForegroundColor = ConsoleColor.White;
 
         continue;
     }
-
     // RUNTIME EXECUTION
-    if (runtime.ContainsKey(input))
+    if (runtime.ContainsKey(input.Trim()))
     {
         Console.ForegroundColor = ConsoleColor.DarkGray;
 
-        Console.WriteLine(runtime[input]);
+        Console.WriteLine(runtime[input.Trim()]);
 
         Console.ForegroundColor = ConsoleColor.White;
 
         continue;
+    }
     }
 
     // AUTO CREATE UNKNOWN NODE
