@@ -14,15 +14,34 @@ while (true)
 
     string? input = Console.ReadLine();
 
+    input = input?.Trim();
+
     if (string.IsNullOrWhiteSpace(input))
     {
         Console.Clear();
         continue;
     }
 
-    input = input.Trim();
+    // FILESYSTEM
+    if (input.StartsWith("fs.x01"))
+    {
+        FS.Read(input);
+        continue;
+    }
 
-    // VALUE ASSIGN
+    if (input.StartsWith("fs.x02"))
+    {
+        FS.Delete(input);
+        continue;
+    }
+
+    if (input.StartsWith("fs.x03"))
+    {
+        FS.Edit(input);
+        continue;
+    }
+
+    // RUNTIME NODES
     if (input.Contains("="))
     {
         int index = input.IndexOf('=');
@@ -38,19 +57,14 @@ while (true)
 
         continue;
     }
-    // RUNTIME EXECUTION
-    if (runtime.ContainsKey(input.Trim()))
+
+    // EXECUTE NODE
+    if (runtime.ContainsKey(input))
     {
         Console.ForegroundColor = ConsoleColor.DarkGray;
-
-        Console.WriteLine(runtime[input.Trim()]);
-
+        Console.WriteLine(runtime[input]);
         Console.ForegroundColor = ConsoleColor.White;
 
         continue;
     }
-    }
-
-    // AUTO CREATE UNKNOWN NODE
-    runtime[input] = "null";
 }
